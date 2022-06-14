@@ -1,12 +1,12 @@
-import { HStack, Box } from "@chakra-ui/react"
+import { HStack, Box, Text } from "@chakra-ui/react"
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Boxx } from "../components/Box";
 import { CameraController } from "./cameraController";
 export const TextBox = () =>{
 
     return(
-        <HStack>
-<Box bg="gray.600" >
+        <HStack bg="gray.600" >
+<Box >
 <Canvas style={{height : "100%"}}>
         <CameraController />
         <ambientLight intensity={0.5} />
@@ -16,6 +16,10 @@ export const TextBox = () =>{
         <Boxx position={[1.2, 0, 0]} />
       </Canvas>
 </Box>
+
+<Text color="white">
+Hi
+</Text>
         </HStack>
     )
 }
