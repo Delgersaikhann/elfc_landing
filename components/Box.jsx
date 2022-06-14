@@ -1,5 +1,6 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 
 export const Boxx =(props) =>{
