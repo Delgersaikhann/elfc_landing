@@ -6,7 +6,14 @@ import { Model } from "../components/Model-with-animations";
 
 export default function Home() {
   return (
-    <VStack minH="100vh" bg="gray.700" justifyContent="space-between">
+    <VStack
+      minH="100vh"
+      bgGradient={[
+        "linear(to-b, black, red.300)",
+        "linear(to-b, black, red.300)",
+      ]}
+      justifyContent="space-between"
+    >
       <Header />
       <Box h="100px" />
       <TextBox />

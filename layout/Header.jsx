@@ -1,29 +1,43 @@
-import { Button, HStack, Stack, Text } from "@chakra-ui/react";
+import { Button, Flex, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Header = () => {
   const HeaderData = [
-    { page: "home", display: 0 },
+    { page: "Home", display: 0 },
     { page: "About Us", display: 500 },
-
-    { page: "tokenomics", display: 1000 },
-
+    { page: "Tokenomics", display: 1000 },
     { page: "Whitepaper", display: 1550 },
   ];
+  const [offset, setOffset] = useState(0);
 
-  const HandleClick = (event) => {
-    console.log(event);
+  useEffect(() => {
+    const onScroll = () => setOffset(window.pageYOffset);
+    // clean up code
+    window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const HandleClick = (display) => {
+    console.log(display);
     window.scrollTo({
-      top: event,
+      top: display,
       left: 0,
       behavior: "smooth",
     });
   };
   return (
-    <Stack zIndex="1000" pos="fixed" bg="gray.800" w="100%" color="white">
-      <HStack p={3} w="70%" mx="auto" justifyContent="space-between">
-        <Text fontSize={"3xl"}>ELF chain</Text>
+    <Stack zIndex="1000" pos="fixed" w="100%">
+      <HStack p={2} w="70%" mx="auto" justifyContent="space-between">
+        <HStack>
+          <Image
+            h="30px"
+            src="https://cdn.discordapp.com/attachments/936466303307374623/974585153903030292/elfc_logo_png-01.png"
+          />
+          <Text fontSize={"2xl"}>ELF</Text>
+        </HStack>
+
         <HStack>
           {HeaderData.map((el, ind) => {
             return (
@@ -35,6 +49,8 @@ export const Header = () => {
                 px={5}
                 py={3}
                 key={ind}
+                color="#ffffff80"
+                _hover={{ color: "white" }}
               >
                 {el.page}
               </Text>
@@ -42,7 +58,9 @@ export const Header = () => {
             );
           })}
         </HStack>
-        <Button>Buy ELFc</Button>
+        <Flex w="30%" justifyContent="flex-end">
+          <Button>Buy ELFc</Button>
+        </Flex>
       </HStack>
     </Stack>
   );
