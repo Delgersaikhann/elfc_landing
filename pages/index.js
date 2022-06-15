@@ -2,6 +2,7 @@ import { VStack, Spacer, Stack, Box } from "@chakra-ui/react";
 import { Header } from "../layout/Header";
 import { Footer } from "../layout/Footer";
 import { TextBox } from "../components/TextBox";
+import { Model } from "../components/Model-with-animations";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Header />
       <Box h="100px" />
       <TextBox />
+      {/* <Model /> */}
       <Stack id="home" h="100vh" bg="red">
         home
       </Stack>

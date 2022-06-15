@@ -21,7 +21,7 @@ export const Header = () => {
     });
   };
   return (
-    <Stack zIndex="1000" pos="fixed" bg="gray.800" w="100%">
+    <Stack zIndex="1000" pos="fixed" bg="gray.800" w="100%" color="white">
       <HStack p={3} w="70%" mx="auto" justifyContent="space-between">
         <Text fontSize={"3xl"}>ELF chain</Text>
         <HStack>
